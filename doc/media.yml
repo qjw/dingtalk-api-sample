@@ -1,0 +1,29 @@
+media_upload:
+  summary: 上传媒体文件
+  tags:
+    - 管理媒体文件
+  parameters:
+    - name: file
+      in: formData
+      type: file
+    - name: tp
+      in: query
+      type: string
+      enum:
+        - image
+        - voice
+        - file
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+

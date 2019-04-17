@@ -1,0 +1,326 @@
+send_corpconversation_text:
+  summary: 发送工作通知消息(文本)
+  tags:
+    - 消息通知
+  parameters:
+    - name: body
+      in: body
+      schema:
+        type: object
+        properties:
+          userid_list:
+            type: string
+            example: "manager5847,bb"
+          dept_id_list:
+            type: string
+            example: "123,235"
+          msg:
+            type: object
+            properties:
+              msgtype:
+                type: string
+                example: text
+              text:
+                type: object
+                properties:
+                  content:
+                    type: string
+                required:
+                  - content
+            required:
+              - msgtype
+              - text
+        required:
+          - msg
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+send_corpconversation_link:
+  summary: 发送工作通知消息(链接)
+  tags:
+    - 消息通知
+  parameters:
+    - name: body
+      in: body
+      schema:
+        type: object
+        properties:
+          userid_list:
+            type: string
+            example: "manager5847,bb"
+          dept_id_list:
+            type: string
+            example: "123,235"
+          msg:
+            type: object
+            properties:
+              msgtype:
+                type: string
+                example: link
+              link:
+                type: object
+                properties:
+                  messageUrl:
+                    type: string
+                    example: "http://s.dingtalk.com/market/dingtalk/error_code.php"
+                  picUrl:
+                    type: string
+                    example: "https://www.baidu.com/img/bd_logo1.png"
+                  title:
+                    type: string
+                    example: 发拉德斯基法律分
+                  text:
+                    type: string
+                    example: 法律的风景啊看到
+                required:
+                  - messageUrl
+                  - picUrl
+                  - title
+                  - text
+            required:
+              - msgtype
+              - link
+        required:
+          - msg
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+send_corpconversation_markdown:
+  summary: 发送工作通知消息(Markdown)
+  tags:
+    - 消息通知
+  parameters:
+    - name: body
+      in: body
+      schema:
+        type: object
+        properties:
+          userid_list:
+            type: string
+            example: "manager5847,bb"
+          dept_id_list:
+            type: string
+            example: "123,235"
+          msg:
+            type: object
+            properties:
+              msgtype:
+                type: string
+                example: markdown
+              markdown:
+                type: object
+                properties:
+                  title:
+                    type: string
+                    example: 发拉德斯基法律分
+                  text:
+                    type: string
+                    example: |
+                      # 这是支持markdown的文本
+                      ## 标题2
+                      * 列表1
+                      * 列表2
+                      ![alt 啊](https://gw.alipayobjects.com/zos/skylark-tools/public/files/b424a1af2f0766f39d4a7df52ebe0083.png)
+
+                      **注意** : `你懂的`
+                required:
+                  - title
+                  - text
+            required:
+              - msgtype
+              - markdown
+        required:
+          - msg
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+send_corpconversation_action_card:
+  summary: 发送工作通知消息(卡片)
+  tags:
+    - 消息通知
+  parameters:
+    - name: body
+      in: body
+      schema:
+        type: object
+        properties:
+          userid_list:
+            type: string
+            example: "manager5847,bb"
+          dept_id_list:
+            type: string
+            example: "123,235"
+          msg:
+            type: object
+            properties:
+              msgtype:
+                type: string
+                example: action_card
+              action_card:
+                type: object
+                properties:
+                  single_url:
+                    type: string
+                    example: "http://s.dingtalk.com/market/dingtalk/error_code.php"
+                  single_title:
+                    type: string
+                    example: 查看详情
+                  title:
+                    type: string
+                    example: 发拉德斯基法律分
+                  markdown:
+                    type: string
+                    example: |
+                      # 这是支持markdown的文本
+                      ## 标题2
+                      * 列表1
+                      * 列表2
+                      ![alt 啊](https://gw.alipayobjects.com/zos/skylark-tools/public/files/b424a1af2f0766f39d4a7df52ebe0083.png)
+                      **注意** : `你懂的`
+                required:
+                  - single_url
+                  - single_title
+                  - title
+                  - markdown
+            required:
+              - msgtype
+              - action_card
+        required:
+          - msg
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+send_corpconversation_image:
+  summary: 发送工作通知消息(图片)
+  tags:
+    - 消息通知
+  parameters:
+    - name: body
+      in: body
+      schema:
+        type: object
+        properties:
+          userid_list:
+            type: string
+            example: "manager5847,bb"
+          dept_id_list:
+            type: string
+            example: "123,235"
+          msg:
+            type: object
+            properties:
+              msgtype:
+                type: string
+                example: image
+              image:
+                type: object
+                properties:
+                  media_id:
+                    type: string
+                required:
+                  - media_id
+            required:
+              - msgtype
+              - image
+        required:
+          - msg
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+send_corpconversation_file:
+  summary: 发送工作通知消息(文件)
+  tags:
+    - 消息通知
+  parameters:
+    - name: body
+      in: body
+      schema:
+        type: object
+        properties:
+          userid_list:
+            type: string
+            example: "manager5847,bb"
+          dept_id_list:
+            type: string
+            example: "123,235"
+          msg:
+            type: object
+            properties:
+              msgtype:
+                type: string
+                example: file
+              file:
+                type: object
+                properties:
+                  media_id:
+                    type: string
+                required:
+                  - media_id
+            required:
+              - msgtype
+              - file
+        required:
+          - msg
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok

@@ -1,0 +1,353 @@
+departments:
+  summary: 所有部门
+  tags:
+    - 通讯录管理
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+department_detail:
+  summary: 部门详情
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: id
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+department_subids:
+  summary: 部门子部门信息
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: id
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+department_parent:
+  summary: 部门的所有上级父部门路径
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: id
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+department_userids:
+  summary: 获取部门用户userid列表
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: id
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+department_users:
+  summary: 获取部门用户
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: id
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+department_user_details:
+  summary: 获取部门用户详情
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: id
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+get_org_user_count:
+  summary: 获取企业员工人数
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: active
+      in: query
+      type: integer
+      enum:
+        - 0
+        - 1
+      description: |
+          0：包含未激活钉钉的人员数量
+          1：不包含未激活钉钉的人员数量
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+user_detail:
+  summary: 获取用户详情
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: id
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+admin_users:
+  summary: 获取管理员列表
+  tags:
+    - 通讯录管理
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+admin_scopes:
+  summary: 获取管理员通讯录权限范围
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: id
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+create_department:
+  summary: 创建部门
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: body
+      in: body
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+            example: 张三
+          parentid:
+            type: string
+            example: "1"
+        required:
+          - name
+          - parentid
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            description: 返回码
+            type: integer
+            default: 0
+          message:
+            description: 返回字符串描述
+            type: string
+            default: ok
+delete_department:
+  summary: 删除部门
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: id
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok
+create_user:
+  summary: 创建用户
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: body
+      in: body
+      schema:
+        type: object
+        properties:
+          userid:
+            type: string
+          name:
+            type: string
+            example: 张三
+          department:
+            type: array
+            minItems: 1
+            uniqueItems: true
+            items:
+              type: string
+              example: "1"
+          mobile:
+            type: string
+            example: "13800138000"
+        required:
+          - name
+          - department
+          - mobile
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            description: 返回码
+            type: integer
+            default: 0
+          message:
+            description: 返回字符串描述
+            type: string
+            default: ok
+delete_user:
+  summary: 删除用户
+  tags:
+    - 通讯录管理
+  parameters:
+    - name: id
+      in: path
+      type: string
+      description: id
+      required: true
+  responses:
+    200:
+      schema:
+        properties:
+          code:
+            type: integer
+            description: 返回码
+            default: 0
+          message:
+            type: string
+            description: 返回字符串描述
+            default: ok

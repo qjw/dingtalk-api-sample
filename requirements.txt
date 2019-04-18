@@ -1,7 +1,7 @@
-Flask==0.10.1
+flask>=0.12.3
 Flask-Cors==3.0.4
-Jinja2==2.8
-requests==2.9.1
+Jinja2>=2.10.1
+requests>=2.20.0
 simplejson==3.8.2
 Werkzeug==0.11.5
 git+http://github.com/qjw/flask-swagger.git@v1.0.0

@@ -56,6 +56,12 @@ python mani.py
 
 或者直接访问 <http://d.l.self.kim/apidoc>
 
+## 第三方扫码地址
+<http://d.l.self.kim/scan>
+
+## JSAPI测试地址
+<http://d.l.self.kim/x> 将应用首页地址设置为它即可
+
 # 实现
 1. 通讯录(部门/人员)管理
 2. 上传素材(图片/文件)
@@ -68,3 +74,7 @@ python mani.py
 1. <https://github.com/sulin2018/python-dingding>
 2. <https://github.com/Huooo/demo-collections>
 3. <https://github.com/Huooo/demo-collections/blob/master/20170701-dd-jsapi-m-demo.html>
+
+# 实例
+![Screenshot](swagger.jpg)
+![Screenshot](jsapi.jpg)
